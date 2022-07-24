@@ -8,6 +8,7 @@ export const DivContainer = styled.div`
 export const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 1rem;
+  font-family: 'Baloo 2', cursive;
 `;
 
 export const SubTitle = styled.strong`
