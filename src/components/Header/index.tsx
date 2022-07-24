@@ -8,11 +8,11 @@ export function Header() {
       <img src={coffeLogo} />
       <DivContainer>
         <DivLocalization>
-            <MapPin/>
-            <span>Minas Gerais, MG</span>
+          <MapPin />
+          <span>Minas Gerais, MG</span>
         </DivLocalization>
         <DivLocalization>
-            <ShoppingCart size={22}/>
+          <ShoppingCart size={22} />
         </DivLocalization>
       </DivContainer>
     </HeaderContainer>
