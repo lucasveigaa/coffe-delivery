@@ -1,4 +1,4 @@
-import cartWhiteBackPurpleDark from "../../assets/cart-white-back-purple-dark.svg";
+import cartWhiteBackPurpleDark from "../../../../assets/cart-white-back-purple-dark.svg";
 import {
   DescriptionItem,
   DivAddToCart,

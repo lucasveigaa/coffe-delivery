@@ -1,9 +1,16 @@
-import bannerCoffeHome from "../../assets/banner-home.svg";
-import { DivContainer, DivIcons, DivSubContainer, ImgCoffeBannerHome, SubTitle, Title } from "./styles";
-import iconCartWhiteBackYellow from "../../assets/cart-white-back-yellow.svg";
-import iconPackingWhiteBackGray from "../../assets/packing-white-back-gray.svg";
-import iconCoffeWhiteBackPurple from "../../assets/coffe-white-back-purple.svg";
-import timerWhiteBackYellow from "../../assets/timer-white-back-yellow.svg";
+import bannerCoffeHome from "../../../../assets/banner-home.svg";
+import {
+  DivContainer,
+  DivIcons,
+  DivSubContainer,
+  ImgCoffeBannerHome,
+  SubTitle,
+  Title,
+} from "./styles";
+import iconCartWhiteBackYellow from "../../../../assets/cart-white-back-yellow.svg";
+import iconPackingWhiteBackGray from "../../../../assets/packing-white-back-gray.svg";
+import iconCoffeWhiteBackPurple from "../../../../assets/coffe-white-back-purple.svg";
+import timerWhiteBackYellow from "../../../../assets/timer-white-back-yellow.svg";
 
 export function BannerHome() {
   return (

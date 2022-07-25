@@ -1,9 +1,9 @@
-import { BannerHome } from "../../components/BannerHome";
-import { ItemCart } from "../../components/ItemCart";
+import { ItemCart } from "./components/ItemCart";
 import { MainItens, TitleMain } from "./styled";
 
 import ImgExpressoTradicional from "../../assets/expresso-tradicional.svg";
 import ImgExpressoAmericano from "../../assets/expresso-americano.svg";
+import { BannerHome } from "./components/BannerHome";
 
 export function Home() {
   return (
