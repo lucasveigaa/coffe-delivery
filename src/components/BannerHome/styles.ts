@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const DivContainer = styled.div`
   display: flex;
   margin-top: 5.8rem;
+  margin-bottom: 3.5rem;
 `;
 
 export const Title = styled.h1`

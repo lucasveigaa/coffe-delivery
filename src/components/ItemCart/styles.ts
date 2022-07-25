@@ -7,7 +7,21 @@ export const DivItem = styled.div`
   justify-content: center;
   align-items: center;
   width: 16rem;
+  border-radius: 6px 36px;
+  
+  margin-right: 2rem;
+  margin-bottom: 2.5rem;
 `;
+
+export const ImgCoffe = styled.img`
+  position: relative;
+  top: -1.25rem;
+`;
+
+export const DivTypeItem = styled.div`
+  display: flex;
+  gap: 0.25rem;
+`
 
 export const TypeItem = styled.span`
   background: ${(props) => props.theme["yellow-light"]};

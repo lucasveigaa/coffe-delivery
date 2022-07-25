@@ -1,9 +1,10 @@
-import traditionalCoffe from "../../assets/traditional-coffe.svg";
 import cartWhiteBackPurpleDark from "../../assets/cart-white-back-purple-dark.svg";
 import {
   DescriptionItem,
   DivAddToCart,
   DivItem,
+  DivTypeItem,
+  ImgCoffe,
   ItemInfos,
   TitleItem,
   TypeItem,
@@ -11,15 +12,30 @@ import {
 } from "./styles";
 import { Minus, Plus } from "phosphor-react";
 
-export function ItemCart() {
+interface ItemCartProps {
+  imgItem: string;
+  titleItem: string;
+  typeItem: string;
+  descriptionItem: string;
+}
+
+export function ItemCart({
+  imgItem,
+  titleItem,
+  typeItem,
+  descriptionItem,
+}: ItemCartProps) {
+  const arrTypeItem = typeItem?.split(",");
   return (
     <DivItem>
-      <img src={traditionalCoffe} />
-      <TypeItem>TRADICIONAL</TypeItem>
-      <TitleItem>Expresso Tradicional</TitleItem>
-      <DescriptionItem>
-        O tradicional café feito com água quente e grãos moídos
-      </DescriptionItem>
+      <ImgCoffe src={imgItem} />
+      <DivTypeItem>
+        {arrTypeItem?.map((item) => {
+          return <TypeItem>{item}</TypeItem>;
+        })}
+      </DivTypeItem>
+      <TitleItem>{titleItem}</TitleItem>
+      <DescriptionItem>{descriptionItem}</DescriptionItem>
       <ItemInfos>
         <ValueDiv>
           <span>R$</span>

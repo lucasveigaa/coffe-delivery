@@ -1,7 +1,6 @@
 import { ThemeProvider } from "styled-components";
-import { BannerHome } from "./components/BannerHome";
 import { Header } from "./components/Header";
-import { ItemCart } from "./components/ItemCart";
+import { Home } from "./pages/Home";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 
@@ -10,8 +9,7 @@ function App() {
     <div>
       <ThemeProvider theme={defaultTheme}>
         <Header />
-        <BannerHome />
-        <ItemCart />
+        <Home />
         <GlobalStyle />
       </ThemeProvider>
     </div>
