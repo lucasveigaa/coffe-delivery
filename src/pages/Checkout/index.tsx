@@ -1,17 +1,18 @@
 import { CartInformation } from "./components/CartInformation";
 import { CheckoutInformation } from "./components/CheckoutInformation";
+import { Main, TitleCheckouts } from "./styled";
 
 export function Checkout() {
   return (
-    <main>
+    <Main>
       <div>
-        <strong>Complete seu pedido</strong>
+        <TitleCheckouts>Complete seu pedido</TitleCheckouts>
         <CheckoutInformation />
       </div>
-      {/* <div>
-        <strong>Cafés selecionados</strong>
-        <CartInformation /> */}
-      {/* </div> */}
-    </main>
+      <div>
+        <TitleCheckouts>Cafés selecionados</TitleCheckouts>
+        <CartInformation />
+      </div>
+    </Main>
   );
 }

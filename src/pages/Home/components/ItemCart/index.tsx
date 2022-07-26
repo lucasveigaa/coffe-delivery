@@ -11,6 +11,7 @@ import {
   ValueDiv,
 } from "./styles";
 import { Minus, Plus } from "phosphor-react";
+import { Link } from "react-router-dom";
 
 interface ItemCartProps {
   imgItem: string;
@@ -47,7 +48,7 @@ export function ItemCart({
             <span>1</span>
             <button>{<Plus />}</button>
           </div>
-          <img src={cartWhiteBackPurpleDark} />
+          <Link to="/checkout"><img src={cartWhiteBackPurpleDark} /></Link>
         </DivAddToCart>
       </ItemInfos>
     </DivItem>

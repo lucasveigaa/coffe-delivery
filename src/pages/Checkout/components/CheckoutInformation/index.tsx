@@ -19,12 +19,15 @@ import {
   TitleDivAddress,
 } from "./styled";
 
+import { useTheme } from "styled-components";
+
 export function CheckoutInformation() {
+  const theme = useTheme();
   return (
     <div>
       <DivAddress>
         <DivTitleSubtitleAddress>
-          <MapPinLine color='#DBAC2C'/>
+          <MapPinLine color={theme.yellow} />
           <div>
             <TitleDivAddress>Endereço de Entrega</TitleDivAddress>
             <SubTitleDivAddress>
