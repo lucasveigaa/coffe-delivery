@@ -1,4 +1,5 @@
 import { Minus, Plus, Trash } from "phosphor-react";
+import { Link } from "react-router-dom";
 import ImgExpressoTradicional from "../../../..//assets/expresso-tradicional.svg";
 import {
   ButtonValueCart,
@@ -45,7 +46,9 @@ export function CartInformation() {
           <strong>Total</strong>
           <strong>R$ 33,20</strong>
         </DivValueCart>
-        <ButtonValueCart>CONFIRMAR PEDIDO</ButtonValueCart>
+        <Link to="/success">
+          <ButtonValueCart>CONFIRMAR PEDIDO</ButtonValueCart>
+        </Link>
       </div>
     </Main>
   );

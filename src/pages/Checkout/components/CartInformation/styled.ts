@@ -115,5 +115,6 @@ export const ButtonValueCart = styled.button`
 
   &:hover {
     background: ${(props) => props.theme["yellow-dark"]};
+    cursor: pointer;
   }
 `;
