@@ -1,21 +1,27 @@
-import { DivContainer, DivLocalization, HeaderContainer } from "./styles";
+import { DivLocalization, HeaderContainer, ImgCartHeader, NavContainer } from "./styles";
 import coffeLogo from "../../assets/coffe-logo.svg";
-import { MapPin, ShoppingCart } from "phosphor-react";
 import { Link } from "react-router-dom";
+
+import iconCartFullYellowDark from "../../assets/icon-cart-full-yellow-dark.svg";
+import iconMapFullPurple from "../../assets/icon-map-full-purple-header.svg";
 
 export function Header() {
   return (
     <HeaderContainer>
-      <Link to="/"><img src={coffeLogo} /></Link>
-      <DivContainer>
+      <Link to="/">
+        <img src={coffeLogo} />
+      </Link>
+      <NavContainer>
         <DivLocalization>
-          <MapPin />
+          <img src={iconMapFullPurple} />
           <span>Minas Gerais, MG</span>
         </DivLocalization>
-        <DivLocalization>
-          <Link to="/checkout"><ShoppingCart size={22} /></Link>
-        </DivLocalization>
-      </DivContainer>
+        <div>
+          <Link to="/checkout">
+            <ImgCartHeader src={iconCartFullYellowDark} />
+          </Link>
+        </div>
+      </NavContainer>
     </HeaderContainer>
   );
 }
