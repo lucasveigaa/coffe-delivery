@@ -70,11 +70,9 @@ export const DivAddToCart = styled.div`
   margin-bottom: 1.25rem;
 
   button {
-    color: ${(props) => props.theme["purple"]};
-    background: ${(props) => props.theme["base-button"]};
-    padding: 0.5rem;
-    border: 0;
+    border: none;
   }
+
 
   span {
     background: ${(props) => props.theme["base-button"]};
@@ -84,4 +82,12 @@ export const DivAddToCart = styled.div`
   img {
     margin-left: 0.5rem;
   }
+
 `;
+
+export const ButtonIncreaseAndDecreaseItensCart = styled.button`
+    color: ${(props) => props.theme["purple"]};
+    background: ${(props) => props.theme["base-button"]};
+    padding: 0.5rem;
+    border: 0;
+`

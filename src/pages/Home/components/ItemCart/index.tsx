@@ -1,5 +1,6 @@
 import cartWhiteBackPurpleDark from "../../../../assets/cart-white-back-purple-dark.svg";
 import {
+  ButtonIncreaseAndDecreaseItensCart,
   DescriptionItem,
   DivAddToCart,
   DivItem,
@@ -11,32 +12,41 @@ import {
   ValueDiv,
 } from "./styles";
 import { Minus, Plus } from "phosphor-react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../../contexts/CartContext";
+import { Product } from "../../../../types";
 
-interface ItemCartProps {
-  imgItem: string;
-  titleItem: string;
-  typeItem: string;
-  descriptionItem: string;
-}
+export function ItemCart(product: Product) {
+  const [amountProduct, setAmountProduct] = useState(0);
+  const { descriptionProduct, imgProduct, titleProduct, typeProduct } = product;
 
-export function ItemCart({
-  imgItem,
-  titleItem,
-  typeItem,
-  descriptionItem,
-}: ItemCartProps) {
-  const arrTypeItem = typeItem?.split(",");
+  const arrTypeItem = typeProduct?.split(",");
+
+  const { addToCart } = useContext(CartContext);
+
+  const newProduct = {
+    ...product,
+    amountProduct,
+  };
+
+  function handleIncreaseAmountItem() {
+    setAmountProduct((state) => state + 1);
+  }
+
+  function handleDecreaseAmountItem() {
+    setAmountProduct((state) => state - 1);
+  }
+
   return (
     <DivItem>
-      <ImgCoffe src={imgItem} />
+      <ImgCoffe src={imgProduct} />
       <DivTypeItem>
-        {arrTypeItem?.map((item) => {
-          return <TypeItem>{item}</TypeItem>;
+        {arrTypeItem?.map((item: string) => {
+          return <TypeItem key={item}>{item}</TypeItem>;
         })}
       </DivTypeItem>
-      <TitleItem>{titleItem}</TitleItem>
-      <DescriptionItem>{descriptionItem}</DescriptionItem>
+      <TitleItem>{titleProduct}</TitleItem>
+      <DescriptionItem>{descriptionProduct}</DescriptionItem>
       <ItemInfos>
         <ValueDiv>
           <span>R$</span>
@@ -44,11 +54,21 @@ export function ItemCart({
         </ValueDiv>
         <DivAddToCart>
           <div>
-            <button>{<Minus />}</button>
-            <span>1</span>
-            <button>{<Plus />}</button>
+            <ButtonIncreaseAndDecreaseItensCart
+              onClick={handleDecreaseAmountItem}
+            >
+              {<Minus />}
+            </ButtonIncreaseAndDecreaseItensCart>
+            <span>{amountProduct}</span>
+            <ButtonIncreaseAndDecreaseItensCart
+              onClick={handleIncreaseAmountItem}
+            >
+              {<Plus />}
+            </ButtonIncreaseAndDecreaseItensCart>
           </div>
-          <Link to="/checkout"><img src={cartWhiteBackPurpleDark} /></Link>
+          <button onClick={() => addToCart(newProduct)}>
+            <img src={cartWhiteBackPurpleDark} />
+          </button>
         </DivAddToCart>
       </ItemInfos>
     </DivItem>

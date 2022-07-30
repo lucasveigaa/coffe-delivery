@@ -14,15 +14,22 @@ export const Main = styled.main`
 
 export const DivContainerItemCart = styled.div`
   display: flex;
-  padding-bottom: 1.5rem;
+  flex-direction: column;
 
-  border-bottom: 1px solid ${(props) => props.theme["base-button"]};
 `;
+
+// export const DivItensCart = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
 
 export const DivSubContainerItemCart = styled.div`
   display: flex;
-  /* justify-content: space-between; */
   gap: 1.25rem;
+
+  
+  padding: 1.5rem 0;
+  border-bottom: 1px solid ${(props) => props.theme["base-button"]};
 
   img {
     width: 4rem;
