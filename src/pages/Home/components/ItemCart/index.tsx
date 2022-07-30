@@ -20,8 +20,6 @@ export function ItemCart(product: Product) {
   const [amountProduct, setAmountProduct] = useState(0);
   const { descriptionProduct, imgProduct, titleProduct, typeProduct } = product;
 
-  const arrTypeItem = typeProduct?.split(",");
-
   const { addToCart } = useContext(CartContext);
 
   const newProduct = {
@@ -41,7 +39,7 @@ export function ItemCart(product: Product) {
     <DivItem>
       <ImgCoffe src={imgProduct} />
       <DivTypeItem>
-        {arrTypeItem?.map((item: string) => {
+        {typeProduct.map((item: string) => {
           return <TypeItem key={item}>{item}</TypeItem>;
         })}
       </DivTypeItem>
