@@ -13,7 +13,6 @@ export function Home() {
     <>
       <BannerHome />
       <TitleMain>Nossos cafés</TitleMain>
-      <pre>{JSON.stringify(cart, null, 2)}</pre>
       <MainItens>
         {coffeItens.map((product) => (
           <ItemCart key={product.idProduct} {...product} />

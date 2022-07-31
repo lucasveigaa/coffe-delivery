@@ -29,6 +29,26 @@ export const DivLocalization = styled.div`
   }
 `;
 
+export const DivCartHeader = styled.div`
+  span {
+    position: absolute;
+    margin-top: -3rem;
+    margin-left: 2.125rem;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 1000px;
+    background-color: ${props => props.theme['yellow-dark']};
+    color: ${props => props.theme['white']};
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
 export const ImgCartHeader = styled.img`
   display: flex;
   align-items: center;
