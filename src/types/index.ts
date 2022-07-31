@@ -4,6 +4,7 @@ export type Product = {
   titleProduct: string;
   typeProduct: string[];
   descriptionProduct: string;
+  valueProduct: number;
 };
 
 export interface ProductWithAmount extends Product {

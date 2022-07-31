@@ -2,6 +2,7 @@ import { Minus, Plus, Trash } from "phosphor-react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../../../contexts/CartContext";
+import { ProductWithAmount } from "../../../../types";
 import {
   ButtonValueCart,
   DivAddAndRemoveItemCart,
@@ -14,8 +15,35 @@ import {
 } from "./styled";
 
 export function CartInformation() {
-  const { cart } = useContext(CartContext);
-  console.log(cart);
+  const { cart, changeAmountCart, removeProductCart } = useContext(CartContext);
+
+  let totalProductValues = cart.reduce(
+    (acum, actualValue) =>
+      acum + actualValue.valueProduct * actualValue.amountProduct,
+    0
+  );
+
+  function formatValueProduct(productValue: number) {
+    return productValue.toFixed(2).toString().replace(".", ",");
+  }
+
+  function handleDecreaseAmount(product: ProductWithAmount) {
+    const newProductAmount = {
+      ...product,
+      amountProduct: product.amountProduct - 1,
+    };
+
+    changeAmountCart(newProductAmount);
+  }
+
+  function handleIncreaseAmount(product: ProductWithAmount) {
+    const newProductAmount = {
+      ...product,
+      amountProduct: product.amountProduct + 1,
+    };
+
+    changeAmountCart(newProductAmount);
+  }
 
   return (
     <Main>
@@ -28,15 +56,26 @@ export function CartInformation() {
                 <div>
                   <SpanNameItemCart>{product.titleProduct}</SpanNameItemCart>
                   <DivAddAndRemoveItemCart>
-                    <button>{<Minus />}</button>
+                    <button onClick={() => handleDecreaseAmount(product)}>
+                      {<Minus />}
+                    </button>
                     <span>{product.amountProduct}</span>
-                    <button>{<Plus />}</button>
+                    <button onClick={() => handleIncreaseAmount(product)}>
+                      {<Plus />}
+                    </button>
 
-                    <button>{<Trash />} REMOVER</button>
+                    <button onClick={() => removeProductCart(product)}>
+                      {<Trash />} REMOVER
+                    </button>
                   </DivAddAndRemoveItemCart>
                 </div>
                 <DivValueItemCart>
-                  <span>R$ 9,90</span>
+                  <span>
+                    R$
+                    {formatValueProduct(
+                      product.valueProduct * product.amountProduct
+                    )}
+                  </span>
                 </DivValueItemCart>
               </DivSubContainerItemCart>
             </div>
@@ -46,7 +85,7 @@ export function CartInformation() {
       <div>
         <DivValueCart>
           <span>Total de itens</span>
-          <span>R$ 29,70</span>
+          <span>R${formatValueProduct(totalProductValues)}</span>
         </DivValueCart>
         <DivValueCart>
           <span>Entrega</span>
@@ -54,7 +93,7 @@ export function CartInformation() {
         </DivValueCart>
         <DivValueCart>
           <strong>Total</strong>
-          <strong>R$ 33,20</strong>
+          <strong>R${formatValueProduct(totalProductValues + 3.5)}</strong>
         </DivValueCart>
         <Link to="/success">
           <ButtonValueCart>CONFIRMAR PEDIDO</ButtonValueCart>

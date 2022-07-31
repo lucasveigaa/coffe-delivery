@@ -15,19 +15,12 @@ export const Main = styled.main`
 export const DivContainerItemCart = styled.div`
   display: flex;
   flex-direction: column;
-
 `;
-
-// export const DivItensCart = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `;
 
 export const DivSubContainerItemCart = styled.div`
   display: flex;
   gap: 1.25rem;
 
-  
   padding: 1.5rem 0;
   border-bottom: 1px solid ${(props) => props.theme["base-button"]};
 

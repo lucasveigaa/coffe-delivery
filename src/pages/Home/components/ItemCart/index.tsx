@@ -17,8 +17,16 @@ import { CartContext } from "../../../../contexts/CartContext";
 import { Product } from "../../../../types";
 
 export function ItemCart(product: Product) {
+  const {
+    descriptionProduct,
+    imgProduct,
+    titleProduct,
+    typeProduct,
+    valueProduct,
+  } = product;
   const [amountProduct, setAmountProduct] = useState(0);
-  const { descriptionProduct, imgProduct, titleProduct, typeProduct } = product;
+
+  const formatedValueProduct = valueProduct.toString().replace(".", ",");
 
   const { addToCart } = useContext(CartContext);
 
@@ -48,7 +56,7 @@ export function ItemCart(product: Product) {
       <ItemInfos>
         <ValueDiv>
           <span>R$</span>
-          <strong>9,90</strong>
+          <strong>{formatedValueProduct}0</strong>
         </ValueDiv>
         <DivAddToCart>
           <div>
