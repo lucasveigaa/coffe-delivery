@@ -12,6 +12,27 @@ export const Main = styled.main`
   flex-direction: column;
 `;
 
+export const DivContainerCartEmpty = styled.div`
+  span {
+    color: ${props => props.theme['base-subtitle']};
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  a {
+    color: ${props => props.theme['purple']};
+  }
+
+  a:hover {
+    color: ${props => props.theme['purple-dark']};
+  }
+`
+
 export const DivContainerItemCart = styled.div`
   display: flex;
   flex-direction: column;
