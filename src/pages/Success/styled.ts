@@ -3,8 +3,14 @@ import styled from "styled-components";
 export const Main = styled.main`
   display: flex;
   justify-content: space-between;
-
+  max-width: 75rem;
   margin-top: 5rem;
+
+  @media (max-width: 1025px) {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const DivContainer = styled.div`
@@ -35,6 +41,12 @@ export const DivSubContainer = styled.div`
   height: 16.875rem;
 
   border: 1px solid rgba(219, 172, 44, 1);
+
+  @media (max-width: 768px){
+    width: 80vw;
+    margin-bottom: 1rem;  
+
+  }
 `;
 
 export const DivInfos = styled.div`
@@ -56,3 +68,14 @@ export const DivSubInfos = styled.div`
     color: ${(props) => props.theme["base-text"]};
   }
 `;
+
+export const ImgIllustration = styled.img`
+  @media (max-width: 1025px){
+    margin-top: 2rem;
+    width: 55vw;
+  }
+
+  @media (max-width: 768px){
+    width: 80vw;
+  }
+`

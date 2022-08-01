@@ -2,19 +2,31 @@ import iconMapPinFullPurple from "../../assets/icon-map-pin-full-purple.svg";
 import iconTimerFullYellow from "../../assets/icon-timer-full-yellow.svg";
 import iconCashFullYellowDark from "../../assets/icon-cash-full-yellow-dark.svg";
 import imgIllustration from "../../assets/illustration-page-success.svg";
-import { DivContainer, DivInfos, DivSubContainer, DivSubInfos, Main, SpanSubtitle } from "./styled";
+import {
+  DivContainer,
+  DivInfos,
+  DivSubContainer,
+  DivSubInfos,
+  ImgIllustration,
+  Main,
+  SpanSubtitle,
+} from "./styled";
 
 export function Success() {
   return (
     <Main>
       <DivContainer>
         <h1>Uhu! Pedido confirmado</h1>
-        <SpanSubtitle>Agora é só aguardar que logo o café chegará até você</SpanSubtitle>
+        <SpanSubtitle>
+          Agora é só aguardar que logo o café chegará até você
+        </SpanSubtitle>
         <DivSubContainer>
           <DivInfos>
             <img src={iconMapPinFullPurple} />
             <DivSubInfos>
-              <span>Entrega em <strong>Rua João Daniel Martinelli, 102</strong></span>
+              <span>
+                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+              </span>
               <span>Farrapos - Porto Alegre, RS</span>
             </DivSubInfos>
           </DivInfos>
@@ -34,7 +46,9 @@ export function Success() {
           </DivInfos>
         </DivSubContainer>
       </DivContainer>
-      <img src={imgIllustration} />
+
+        <ImgIllustration src={imgIllustration} />
+
     </Main>
   );
 }

@@ -4,12 +4,19 @@ export const Main = styled.main`
   margin-top: 1rem;
 
   gap: 1.5rem;
-  padding: 2.5rem;
+  padding: 1.5rem 2.5rem;
   background: ${(props) => props.theme["base-card"]};
   border-radius: 6px 44px;
 
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1025px) {
+    max-width: 40rem;
+    width: 80vw;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
 `;
 
 export const DivContainerCartEmpty = styled.div`
@@ -40,6 +47,7 @@ export const DivContainerItemCart = styled.div`
 
 export const DivSubContainerItemCart = styled.div`
   display: flex;
+  justify-content: space-between;
   gap: 1.25rem;
 
   padding: 1.5rem 0;
@@ -47,6 +55,9 @@ export const DivSubContainerItemCart = styled.div`
 
   img {
     width: 4rem;
+  }
+  @media (max-width: 1025px) {
+    gap: 0;
   }
 `;
 
@@ -95,7 +106,6 @@ export const DivAddAndRemoveItemCart = styled.div`
 `;
 
 export const DivValueItemCart = styled.div`
-  margin-left: 3.125rem;
 
   span {
     font-weight: 700;

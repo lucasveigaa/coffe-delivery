@@ -11,12 +11,15 @@ import {
   DivInputRadio,
   DivTitleSubtitleAddress,
   InputCepNumBairro,
-  InputRuaComplementoCidade,
+  DivComplemento,
+  InputRuaCidade,
   InputTypeRadio,
   InputUF,
   LabelInputRadio,
+  SpanOpcional,
   SubTitleDivAddress,
   TitleDivAddress,
+  InputComplemento
 } from "./styled";
 
 import { useTheme } from "styled-components";
@@ -37,14 +40,20 @@ export function CheckoutInformation() {
         </DivTitleSubtitleAddress>
         <div>
           <InputCepNumBairro placeholder="CEP" type="text" />
-          <InputRuaComplementoCidade placeholder="Rua" type="text" />
+          <InputRuaCidade placeholder="Rua" type="text" />
           <DivInput>
             <InputCepNumBairro placeholder="Número" type="text" />
-            <InputRuaComplementoCidade placeholder="Complemento" type="text" />
+            <DivComplemento>
+              <InputComplemento
+                placeholder="Complemento"
+                type="text"
+              />
+              <SpanOpcional>Opcional</SpanOpcional>
+            </DivComplemento>
           </DivInput>
           <DivInput>
             <InputCepNumBairro placeholder="Bairro" type="text" />
-            <InputRuaComplementoCidade placeholder="Cidade" type="text" />
+            <InputRuaCidade placeholder="Cidade" type="text" />
             <InputUF placeholder="UF" type="text" />
           </DivInput>
         </div>

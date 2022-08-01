@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const DivAddress = styled.div`
-  width: 40rem;
+  width: 45vw;
+  max-width: 40rem;
   background: ${(props) => props.theme["base-card"]};
   border-radius: 6px;
   padding: 2.5rem;
@@ -9,10 +10,15 @@ export const DivAddress = styled.div`
 
   display: flex;
   flex-direction: column;
-  margin: 1rem 0;
+  margin: 1rem auto;
 
   svg {
     color: ${(props) => props.theme["purple"]};
+  }
+
+  @media (max-width: 1025px) {
+    width: 80vw;
+    padding: 1rem;
   }
 `;
 
@@ -43,6 +49,10 @@ export const SubTitleDivAddress = styled.span`
 export const DivInput = styled.div`
   display: flex;
   gap: 0.75rem;
+
+  @media (max-width: 1025px) {
+    flex-direction: column;
+  }
 `;
 
 export const LabelInputRadio = styled.label`
@@ -80,14 +90,40 @@ const BaseInput = styled.input`
 export const DivInputRadio = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1025px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 `;
 
 export const InputCepNumBairro = styled(BaseInput)`
   width: 12.5rem;
 `;
 
-export const InputRuaComplementoCidade = styled(BaseInput)`
+export const InputRuaCidade = styled(BaseInput)`
   width: 100%;
+`;
+
+export const DivComplemento = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
+export const InputComplemento = styled(BaseInput)`
+  flex: 1;
+`;
+
+export const SpanOpcional = styled.span`
+  font-size: 0.75rem;
+  font-style: italic;
+  color: ${(props) => props.theme["base-label"]};
+
+  margin-top: 0.95rem;
+  margin-left: -4rem;
+  margin-right: 1rem;
 `;
 
 export const InputUF = styled(BaseInput)`
