@@ -99,7 +99,18 @@ export const DivInputRadio = styled.div`
   }
 `;
 
-export const InputCepNumBairro = styled(BaseInput)`
+export const InputCep = styled(BaseInput)`
+  width: 12.5rem;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+  }
+`;
+
+export const InputNumBairro = styled(BaseInput)`
   width: 12.5rem;
 `;
 
