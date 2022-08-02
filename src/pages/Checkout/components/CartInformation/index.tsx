@@ -1,6 +1,7 @@
 import { Minus, Plus, ShoppingCartSimple, Trash } from "phosphor-react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useTheme } from "styled-components";
 import { CartContext } from "../../../../contexts/CartContext";
 import { CheckoutContext } from "../../../../contexts/CheckoutContext";
@@ -18,11 +19,31 @@ import {
 } from "./styled";
 
 export function CartInformation() {
-  const { cart, changeAmountCart, removeProductCart } = useContext(CartContext);
-  const theme = useTheme()
+  const theme = useTheme();
+  let navigate = useNavigate();
 
-  const { checkoutInformation } = useContext(CheckoutContext)
+  const { cart, changeAmountCart, removeProductCart } = useContext(CartContext);
+  const { checkoutInformation } = useContext(CheckoutContext);
   console.log(checkoutInformation)
+
+  const isCartEmpty = Object.keys(cart).length <= 0;
+
+  function validatingForm() {
+    if (
+      !checkoutInformation.cep ||
+      !checkoutInformation.street ||
+      !checkoutInformation.num ||
+      !checkoutInformation.district ||
+      !checkoutInformation.city ||
+      !checkoutInformation.uf ||
+      !checkoutInformation.paymentMethod
+    ) {
+      toast.info("Preencha todos os campos!");
+      return;
+    }
+
+    navigate("/success");
+  }
 
   let totalProductValues = cart.reduce(
     (acum, actualValue) =>
@@ -52,14 +73,13 @@ export function CartInformation() {
     changeAmountCart(newProductAmount);
   }
 
-  const isCartEmpty = Object.keys(cart).length <= 0
-
   return (
     <Main>
-      { isCartEmpty ? (
+      {isCartEmpty ? (
         <DivContainerCartEmpty>
           <span>
-            Carrinho de compras vazio <ShoppingCartSimple color={theme.purple} size={22}/>
+            Carrinho de compras vazio{" "}
+            <ShoppingCartSimple color={theme.purple} size={22} />
           </span>
           <Link to="/">Adicionar produtos</Link>
         </DivContainerCartEmpty>
@@ -115,9 +135,9 @@ export function CartInformation() {
               <strong>Total</strong>
               <strong>R${formatValueProduct(totalProductValues + 3.5)}</strong>
             </DivValueCart>
-            <Link to="/success">
-              <ButtonValueCart>CONFIRMAR PEDIDO</ButtonValueCart>
-            </Link>
+            <ButtonValueCart onClick={validatingForm}>
+              CONFIRMAR PEDIDO
+            </ButtonValueCart>
           </div>
         </>
       )}

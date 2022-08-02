@@ -69,6 +69,7 @@ export function CheckoutInformation() {
   }
 
   function handleRuaValue(event: ChangeEvent<HTMLInputElement>) {
+    setRua(event.target.value)
     setInputData({ ...inputData, street: event.target.value });
   }
 
@@ -81,14 +82,17 @@ export function CheckoutInformation() {
   }
 
   function handleBairroValue(event: ChangeEvent<HTMLInputElement>) {
+    setBairro(event.target.value)
     setInputData({ ...inputData, district: event.target.value });
   }
 
   function handleCidadeValue(event: ChangeEvent<HTMLInputElement>) {
+    setCidade(event.target.value)
     setInputData({ ...inputData, city: event.target.value });
   }
 
   function handleUfValue(event: ChangeEvent<HTMLInputElement>) {
+    setUf(event.target.value)
     setInputData({ ...inputData, uf: event.target.value });
   }
 
@@ -110,12 +114,14 @@ export function CheckoutInformation() {
         </DivTitleSubtitleAddress>
         <div>
           <InputCep
+            autoComplete="nope"
             id="cep"
             onChange={handleCepValue}
             placeholder="CEP"
             type="number"
           />
           <InputRuaCidade
+            autoComplete="nope"
             value={rua}
             id="rua"
             onChange={handleRuaValue}
@@ -124,6 +130,7 @@ export function CheckoutInformation() {
           />
           <DivInput>
             <InputNumBairro
+              autoComplete="nope"
               id="num"
               onChange={handleNumValue}
               placeholder="Número"
@@ -131,6 +138,7 @@ export function CheckoutInformation() {
             />
             <DivComplemento>
               <InputComplemento
+                autoComplete="nope"
                 id="complemento"
                 onChange={handleComplementoValue}
                 placeholder="Complemento"
@@ -141,6 +149,7 @@ export function CheckoutInformation() {
           </DivInput>
           <DivInput>
             <InputNumBairro
+              autoComplete="nope"
               value={bairro}
               id="bairro"
               onChange={handleBairroValue}
@@ -148,6 +157,7 @@ export function CheckoutInformation() {
               type="text"
             />
             <InputRuaCidade
+              autoComplete="nope"
               value={cidade}
               id="cidade"
               onChange={handleCidadeValue}
@@ -155,6 +165,7 @@ export function CheckoutInformation() {
               type="text"
             />
             <InputUF
+              autoComplete="nope"
               value={uf}
               id="uf"
               onChange={handleUfValue}
