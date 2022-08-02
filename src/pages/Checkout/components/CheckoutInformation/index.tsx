@@ -24,20 +24,24 @@ import {
 } from "./styled";
 
 import { useTheme } from "styled-components";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { InputDataType } from "../../../../types";
+import { CheckoutContext } from "../../../../contexts/CheckoutContext";
 
 export function CheckoutInformation() {
   const [inputData, setInputData] = useState<InputDataType>(
     {} as InputDataType
   );
-  console.log(inputData);
   const [rua, setRua] = useState("");
   const [bairro, setBairro] = useState("");
   const [cidade, setCidade] = useState("");
   const [uf, setUf] = useState("");
 
   const theme = useTheme();
+
+  const {setCheckoutInformation} = useContext(CheckoutContext)
+  setCheckoutInformation(inputData)
+
 
   function handleCepValue(event: ChangeEvent<HTMLInputElement>) {
     setInputData({ ...inputData, cep: Number(event.target.value) });
@@ -177,7 +181,7 @@ export function CheckoutInformation() {
             type="radio"
             name="payment-form"
             id="credit-card"
-            value="CARTÃO DE CRÉDITO"
+            value="Cartão de crédito"
           />
           <LabelInputRadio htmlFor="credit-card">
             <CreditCard /> CARTÃO DE CRÉDITO
@@ -187,7 +191,7 @@ export function CheckoutInformation() {
             type="radio"
             name="payment-form"
             id="debit-card"
-            value="CARTÃO DE DÉBITO"
+            value="Cartão de débito"
           />
           <LabelInputRadio htmlFor="debit-card">
             <Bank /> CARTÃO DE DÉBITO
@@ -197,7 +201,7 @@ export function CheckoutInformation() {
             type="radio"
             name="payment-form"
             id="cash"
-            value="DINHEIRO"
+            value="Dinheiro"
           />
           <LabelInputRadio htmlFor="cash">
             <Money />

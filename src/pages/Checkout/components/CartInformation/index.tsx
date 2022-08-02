@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "styled-components";
 import { CartContext } from "../../../../contexts/CartContext";
+import { CheckoutContext } from "../../../../contexts/CheckoutContext";
 import { ProductWithAmount } from "../../../../types";
 import {
   ButtonValueCart,
@@ -19,6 +20,9 @@ import {
 export function CartInformation() {
   const { cart, changeAmountCart, removeProductCart } = useContext(CartContext);
   const theme = useTheme()
+
+  const { checkoutInformation } = useContext(CheckoutContext)
+  console.log(checkoutInformation)
 
   let totalProductValues = cart.reduce(
     (acum, actualValue) =>
@@ -48,9 +52,11 @@ export function CartInformation() {
     changeAmountCart(newProductAmount);
   }
 
+  const isCartEmpty = Object.keys(cart).length <= 0
+
   return (
     <Main>
-      {Object.keys(cart).length <= 0 ? (
+      { isCartEmpty ? (
         <DivContainerCartEmpty>
           <span>
             Carrinho de compras vazio <ShoppingCartSimple color={theme.purple} size={22}/>

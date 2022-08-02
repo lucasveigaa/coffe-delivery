@@ -11,8 +11,13 @@ import {
   Main,
   SpanSubtitle,
 } from "./styled";
+import { CheckoutContext } from "../../contexts/CheckoutContext";
+import { useContext } from "react";
 
 export function Success() {
+
+  const { checkoutInformation } = useContext(CheckoutContext)
+
   return (
     <Main>
       <DivContainer>
@@ -25,9 +30,9 @@ export function Success() {
             <img src={iconMapPinFullPurple} />
             <DivSubInfos>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em <strong>{checkoutInformation.street}, {checkoutInformation.num}</strong>
               </span>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <span>{checkoutInformation.city} - {checkoutInformation.uf}</span>
             </DivSubInfos>
           </DivInfos>
           <DivInfos>
@@ -41,7 +46,7 @@ export function Success() {
             <img src={iconCashFullYellowDark} />
             <DivSubInfos>
               <span>Pagamento na entrega</span>
-              <strong>Cartão de Crédito</strong>
+              <strong>{checkoutInformation.paymentMethod}</strong>
             </DivSubInfos>
           </DivInfos>
         </DivSubContainer>

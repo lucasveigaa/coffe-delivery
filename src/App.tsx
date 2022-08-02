@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { CartProvider } from "./contexts/CartContext";
+import { CheckoutProvider } from "./contexts/CheckoutContext";
 import { Router } from "./Router";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
@@ -14,8 +15,10 @@ function App() {
       <ThemeProvider theme={defaultTheme}>
         <BrowserRouter>
           <CartProvider>
+          <CheckoutProvider>
             <ToastContainer autoClose={3000} />
             <Router />
+          </CheckoutProvider>
           </CartProvider>
           <GlobalStyle />
         </BrowserRouter>
