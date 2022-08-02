@@ -24,11 +24,12 @@ export function ItemCart(product: Product) {
     typeProduct,
     valueProduct,
   } = product;
+
+  const { addToCart } = useContext(CartContext);
+
   const [amountProduct, setAmountProduct] = useState(0);
 
   const formatedValueProduct = valueProduct.toString().replace(".", ",");
-
-  const { addToCart } = useContext(CartContext);
 
   const newProduct = {
     ...product,

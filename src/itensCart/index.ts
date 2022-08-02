@@ -43,7 +43,7 @@ export const coffeItens = [
     idProduct: 4,
     imgProduct: ImgExpressoGelado,
     typeProduct: ["TRADICIONAL", "GELADO"],
-    titleProduct: "Expresso Cremoso",
+    titleProduct: "Expresso Gelado",
     valueProduct: 6.90,
     descriptionProduct: "Bebida preparada com café expresso e cubos de gelo",
   },
@@ -60,7 +60,7 @@ export const coffeItens = [
     idProduct: 6,
     imgProduct: ImgLatte,
     typeProduct: ["TRADICIONAL", "COM LEITE"],
-    titleProduct: "Café com Leite",
+    titleProduct: "Latte",
     valueProduct: 8.50,
     descriptionProduct:
       "Uma dose de café expresso com o dobro de leite e espuma cremosa",

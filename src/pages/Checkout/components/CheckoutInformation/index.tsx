@@ -39,9 +39,8 @@ export function CheckoutInformation() {
 
   const theme = useTheme();
 
-  const {setCheckoutInformation} = useContext(CheckoutContext)
-  setCheckoutInformation(inputData)
-
+  const { setCheckoutInformation } = useContext(CheckoutContext);
+  setCheckoutInformation(inputData);
 
   function handleCepValue(event: ChangeEvent<HTMLInputElement>) {
     setInputData({ ...inputData, cep: Number(event.target.value) });
@@ -69,7 +68,7 @@ export function CheckoutInformation() {
   }
 
   function handleRuaValue(event: ChangeEvent<HTMLInputElement>) {
-    setRua(event.target.value)
+    setRua(event.target.value);
     setInputData({ ...inputData, street: event.target.value });
   }
 
@@ -82,22 +81,25 @@ export function CheckoutInformation() {
   }
 
   function handleBairroValue(event: ChangeEvent<HTMLInputElement>) {
-    setBairro(event.target.value)
+    setBairro(event.target.value);
     setInputData({ ...inputData, district: event.target.value });
   }
 
   function handleCidadeValue(event: ChangeEvent<HTMLInputElement>) {
-    setCidade(event.target.value)
+    setCidade(event.target.value);
     setInputData({ ...inputData, city: event.target.value });
   }
 
   function handleUfValue(event: ChangeEvent<HTMLInputElement>) {
-    setUf(event.target.value)
+    setUf(event.target.value);
     setInputData({ ...inputData, uf: event.target.value });
   }
 
-  function handlePaymentMethod(event: React.MouseEvent<HTMLInputElement>){
-    setInputData({ ...inputData, paymentMethod: (event.target as HTMLInputElement).value});
+  function handlePaymentMethod(event: React.MouseEvent<HTMLInputElement>) {
+    setInputData({
+      ...inputData,
+      paymentMethod: (event.target as HTMLInputElement).value,
+    });
   }
 
   return (
@@ -188,7 +190,7 @@ export function CheckoutInformation() {
 
         <DivInputRadio>
           <InputTypeRadio
-          onClick={handlePaymentMethod}
+            onClick={handlePaymentMethod}
             type="radio"
             name="payment-form"
             id="credit-card"
@@ -208,7 +210,7 @@ export function CheckoutInformation() {
             <Bank /> CARTÃO DE DÉBITO
           </LabelInputRadio>
           <InputTypeRadio
-          onClick={handlePaymentMethod}
+            onClick={handlePaymentMethod}
             type="radio"
             name="payment-form"
             id="cash"

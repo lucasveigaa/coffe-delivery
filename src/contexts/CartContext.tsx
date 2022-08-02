@@ -14,7 +14,13 @@ interface CartContextType {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartProvider({ children }: PropsWithChildren) {
-  const [cart, setCart] = useState<ProductWithAmount[]>([]);
+  const CartSavedOnLocalStorage = JSON.parse(
+    localStorage.getItem("cart-coffe-delivery:1-0")!
+  );
+
+  const [cart, setCart] = useState<ProductWithAmount[]>(
+    CartSavedOnLocalStorage || []
+  );
 
   function addToCart(product: ProductWithAmount) {
     const filteredCart = cart.filter(
@@ -48,6 +54,10 @@ export function CartProvider({ children }: PropsWithChildren) {
     });
 
     setCart(newCloneArrayWithChangedAmount);
+  }
+
+  if (cart.length > 0) {
+    localStorage.setItem("cart-coffe-delivery:1-0", JSON.stringify(cart));
   }
 
   return (

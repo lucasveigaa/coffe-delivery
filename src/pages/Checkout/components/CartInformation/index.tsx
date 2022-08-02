@@ -24,7 +24,6 @@ export function CartInformation() {
 
   const { cart, changeAmountCart, removeProductCart } = useContext(CartContext);
   const { checkoutInformation } = useContext(CheckoutContext);
-  console.log(checkoutInformation)
 
   const isCartEmpty = Object.keys(cart).length <= 0;
 
