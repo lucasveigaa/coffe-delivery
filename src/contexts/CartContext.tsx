@@ -27,6 +27,10 @@ export function CartProvider({ children }: PropsWithChildren) {
       (item) => item.idProduct !== product.idProduct
     );
 
+    if (product.amountProduct === 0) {
+      setCart(filteredCart);
+    }
+
     if (product.amountProduct > 0) {
       setCart([...filteredCart, product]);
       toast.success("Produto adicionado no carrinho com sucesso!");

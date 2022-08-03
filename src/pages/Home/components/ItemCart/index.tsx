@@ -25,9 +25,16 @@ export function ItemCart(product: Product) {
     valueProduct,
   } = product;
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cart } = useContext(CartContext);
 
-  const [amountProduct, setAmountProduct] = useState(0);
+  const filteredCart = cart.filter(
+    (item) => item.idProduct === product.idProduct
+  );
+  const filteredCartLength = filteredCart.length !== 0;
+
+  const [amountProduct, setAmountProduct] = useState(
+    filteredCartLength ? filteredCart[0].amountProduct : 0
+  );
 
   const formatedValueProduct = valueProduct.toString().replace(".", ",");
 
@@ -41,7 +48,7 @@ export function ItemCart(product: Product) {
   }
 
   function handleDecreaseAmountItem() {
-    setAmountProduct((state) => state - 1);
+    amountProduct > 0 && setAmountProduct((state) => state - 1);
   }
 
   return (

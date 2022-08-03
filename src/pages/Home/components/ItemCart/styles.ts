@@ -71,6 +71,7 @@ export const DivAddToCart = styled.div`
 
   button {
     border: none;
+    cursor: pointer;
   }
 
 
